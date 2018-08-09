@@ -1,0 +1,97 @@
+<% include partials/header.ejs %>
+	<div class="container">
+		<section id="login">
+			<div class="row">
+				<div class="col-md-6">
+				<marquee><h5>Hello Users, Login if you already have an account.</h5></marquee>
+				<h1>Login </h1>
+				<form action="/" method="POST">
+					<div>
+						<label>Username:</label>
+						<input type="text" name="username" class="form-control" placeholder="Enter Your Username" required="">
+					</div>
+					<div>
+						<label>Password:</label>
+						<input type="password" name="password" class="form-control" placeholder="Enter Your password" required="">
+					</div>
+					<div>
+						<label>Confirm Password:</label>
+						<input type="password" name="confpassword" class="form-control" placeholder="Confirm Your Password" required="">
+					</div><br>
+					<div>
+						<input type="submit" name="submit" value="Login" class="btn btn-success" required="">
+					</div>
+				</form>
+			</div>
+			<div class="col-md-6">
+				<button  class="btn btn-danger" id="fpass" style="margin-top: 323px; margin-left: -500px;" data-toggle="modal" data-target="#myModal">Reset Password</button>
+			</div>
+		</div>
+	</section>
+<!-- beginning of reset password form-->
+<!-- <section id="reset"> -->
+		<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <!-- <h4 class="modal-title">Modal Header</h4> -->
+      </div>
+      <div class="modal-body">
+        <div class="row">
+      <div class="col-md-12">
+        <marquee><h5>Hello Users, Use the form below to reset your password...</h5></marquee>
+        <h1>Reset Password</h1>
+        <form action="/reset" method="POST">
+          <div>
+            <label>Old password:</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter Your old password" required="">
+          </div>
+          <div>
+            <label>New Password:</label>
+            <input type="password" name="new_password" class="form-control" placeholder="Enter Your New password" required="">
+          </div>
+          <div>
+            <label>Confirm New Password:</label>
+            <input type="password" name="new_confpassword" class="form-control" placeholder="Confirm Your New Password" required="">
+          </div><br>
+          <div>
+            <input type="submit" name="submit" value="Update Password" class="btn btn-success">
+          </div>
+        </form>
+        <h5 style="text-align: center;">&copy Brain.js</h5>
+      </div>
+    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+	<!-- </section> -->
+	</div>
+<% include partials/footer.ejs %>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#reset').hide();
+		$('#login').show();
+
+	$('#fpass').click(function () {
+		$('#login').slideUp(1000);
+		$('#myModal').modal('show');
+	});
+	$('.btn-default').click(function () {
+		$('#login').slideDown();
+	});
+	$('.close').click(function () {
+		$('#login').slideDown();
+	});
+	});
+</script>
+
+
